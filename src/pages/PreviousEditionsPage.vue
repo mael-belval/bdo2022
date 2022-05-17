@@ -1,5 +1,5 @@
 <template>
-
+  <h1>Previous Editions</h1>
 </template>
 
 <script>
