@@ -78,7 +78,7 @@ export default {
   top: 0;
   left: 0;
   height: 1.5rem;
-  z-index: 1;
+  z-index: 11;
   cursor: pointer;
   margin: 1rem;
   fill: var(--text-color);
@@ -100,6 +100,7 @@ export default {
   font-size: 1.5rem;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
+  z-index: 10;
 }
 
 .nav-open {
