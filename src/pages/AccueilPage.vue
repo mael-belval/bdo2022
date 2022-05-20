@@ -3,6 +3,7 @@
     <div class="page">
       <img src="../assets/photo_accueil.jpg" alt="background" class="background" ref="background">
       <img src="../assets/logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
+      <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
     </div>
     <div class="page">
       <main>
@@ -18,29 +19,53 @@
         <p>Pour les plus téméraires, participez directement à la course ! Une baignoire, un thème, un peu de motivation, c’est tout ce qu’il vous faut
           pour passer une journée des plus folles ! En famille ou entre amis, n’hésitez plus, vous trouverez toutes les informations
           <a href="#/inscription">ici</a> !</p>
+        <div class="medias">
+          <a href="https://www.facebook.com/baignoiresdansloise/" target="_blank">
+            <img src="../assets/f_logo_RGB-Blue_100.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/baignoires_oise/" target="_blank">
+            <img src="../assets/instagram.png" alt="Instagram">
+          </a>
+        </div>
       </main>
     </div>
   </div>
 </template>
 
 <script>
+import InlineSvg from "vue-inline-svg";
+
 import { getScrollPercent } from "@/utils";
+
+import ChevronDown from "@/assets/chevron-down-solid.svg";
 
 export default {
   name: "AccueilPage",
   data() {
     return {
       blur: 0,
-      scale: 1
+      scale: 1,
+      ChevronDown,
+      scrollDownOpacity: 1
     };
+  },
+  components: {
+    InlineSvg
   },
   methods: {
     onScroll() {
       this.blur = `blur(${getScrollPercent() / 100.0}rem)`;
       this.scale = `scale(${1 + getScrollPercent() / 1000.0})`;
+      this.scrollDownOpacity = 1 - (window.scrollY * 4 / window.innerHeight);
     },
     placeBackground() {
       this.$refs.background.style.left = this.$refs.background.width / -2 + "px";
+    },
+    doScroll() {
+      window.scrollTo({
+        top: window.innerHeight - (3.5 * parseFloat(getComputedStyle(document.documentElement).fontSize)),
+        behavior: "smooth"
+      });
     }
   },
   mounted() {
@@ -90,7 +115,7 @@ export default {
 }
 
 main {
-  margin: 0 1rem;
+  margin: 0 1rem 1rem 1rem;
   background-color: #C0F8FFCC;
   border-radius: 5px;
   padding: 1.5rem 1rem;
@@ -114,7 +139,35 @@ p {
   margin-bottom: 0.5rem;
 }
 
-p:last-child {
-  margin-bottom: 0;
+.medias {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.medias img {
+  width: 4rem;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  fill: #c0f8ff;
+  height: 4rem;
+  filter: drop-shadow(0 0 5px #777);
+  cursor: pointer;
+  opacity: v-bind(scrollDownOpacity);
+  animation: 1s ease-in-out infinite bounce;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>

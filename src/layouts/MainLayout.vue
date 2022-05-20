@@ -6,6 +6,8 @@ import AccueilPage from "@/pages/AccueilPage";
 import PreviousEditionsPage from "@/pages/PreviousEditionsPage";
 import VillagePage from "@/pages/VillagePage";
 
+import { addHashToLocation } from "@/utils";
+
 import BarsSolid from "@/assets/bars-solid.svg";
 
 const routes = [
@@ -44,11 +46,29 @@ export default {
     currentPath() {
       return routes.filter(route => route.path === this.currentRoute)[0]?.path || '#/'
     },
+    currentId() {
+      return routes.filter(route => route.path === this.currentRoute)[0]?.id || 0
+    },
   },
   mounted() {
     window.addEventListener('hashchange', () => {
       this.currentRoute = window.location.hash
     })
+  },
+  methods: {
+    onSwipe(event) {
+      if (event === 'left') {
+        if (this.currentId === routes.length - 1) {
+          return
+        }
+        addHashToLocation(routes[this.currentId + 1].path)
+      } else if (event === 'right') {
+        if (this.currentId === 0) {
+          return
+        }
+        addHashToLocation(routes[this.currentId - 1].path)
+      }
+    }
   }
 }
 </script>
@@ -62,7 +82,7 @@ export default {
       </template>
     </nav>
   </header>
-  <component :is="currentPage" />
+  <component :is="currentPage" v-touch:swipe="onSwipe" />
   <footer>
     <img src="../assets/PVDC.jpg " alt="PVDC" />
     <img src="../assets/ssp.jpg" alt="SSP" />
