@@ -1,72 +1,40 @@
 <script>
 import InlineSvg from 'vue-inline-svg';
 
-import InscriptionPage from "@/pages/InscriptionPage";
-import AccueilPage from "@/pages/AccueilPage";
-import PreviousEditionsPage from "@/pages/PreviousEditionsPage";
-import VillagePage from "@/pages/VillagePage";
-
-import { addHashToLocation } from "@/utils";
-
 import BarsSolid from "@/assets/bars-solid.svg";
 
+let id = 0;
 const routes = [
-  {
-    path: '#/', component: AccueilPage, title: 'Accueil', id: 0
-  }, {
-    path: '#/village', component: VillagePage, title: 'Village', id: 1
-  }, {
-    path: '#/inscription', component: InscriptionPage, title: 'Inscription', id: 2
-  }, {
-    path: '#/previous-editions', component: PreviousEditionsPage, title: 'Éditions précédentes', id: 3
-  }
+  { name: 'accueil', title: 'Accueil', id: id++ },
+  { name: 'village', title: 'Village', id: id++ },
+  { name: 'inscription', title: 'Inscription', id: id++ },
+  { name: 'previous-editions', title: 'Éditions précédentes', id: id++ }
 ]
 
 export default {
   name: "MainLayout",
   components: {
-    InscriptionPage,
-    AccueilPage,
-    PreviousEditionsPage,
-    VillagePage,
     InlineSvg
   },
   data() {
     return {
-      currentRoute: window.location.hash,
       routes,
       menuOpen: false,
       BarsSolid
     }
   },
-  computed: {
-    currentPage() {
-      return routes.filter(route => route.path === this.currentRoute)[0]?.component || AccueilPage
-    },
-    currentPath() {
-      return routes.filter(route => route.path === this.currentRoute)[0]?.path || '#/'
-    },
-    currentId() {
-      return routes.filter(route => route.path === this.currentRoute)[0]?.id || 0
-    },
-  },
-  mounted() {
-    window.addEventListener('hashchange', () => {
-      this.currentRoute = window.location.hash
-    })
-  },
   methods: {
     onSwipe(event) {
       if (event === 'left') {
-        if (this.currentId === routes.length - 1) {
+        if (this.$route.name === routes[routes.length - 1]?.name) {
           return
         }
-        addHashToLocation(routes[this.currentId + 1].path)
+        this.$router.push({ name: routes[routes.findIndex(route => route.name === this.$route.name) + 1].name })
       } else if (event === 'right') {
-        if (this.currentId === 0) {
+        if (this.$route.name === routes[0]?.name) {
           return
         }
-        addHashToLocation(routes[this.currentId - 1].path)
+        this.$router.push({ name: routes[routes.findIndex(route => route.name === this.$route.name) - 1].name })
       }
     }
   }
@@ -78,32 +46,35 @@ export default {
     <nav :class="{ 'nav-header': true, 'nav-open': menuOpen }">
       <InlineSvg :src="BarsSolid" class="burger-menu" @click="() => this.menuOpen = !this.menuOpen"  />
       <template v-for="route in routes" :key="route.id">
-        <a :href="route.path" v-show="menuOpen || this.currentPath === route.path" @click="() => this.menuOpen = false">{{ route.title }}</a>
+        <router-link
+            :to="{ name: route.name }"
+            v-show="menuOpen || this.$route.name === route.name"
+            @click="() => this.menuOpen = false">
+          {{ route.title }}
+        </router-link>
       </template>
     </nav>
   </header>
-  <component :is="currentPage" v-touch:swipe="onSwipe" />
-  <footer>
-    <img src="../assets/PVDC.jpg " alt="PVDC" />
-    <img src="../assets/ssp.jpg" alt="SSP" />
-    <img src="../assets/oise.jpg" alt="Oise" />
-    <img src="../assets/picsart.jpg" alt="Piscart" />
-    <img src="../assets/compiègne.jpg" alt="Compiègne" />
-    <img src="../assets/aviron.jpg" alt="Aviron" />
-    <img src="../assets/dbs.jpg" alt="Dbs" />
-    <img src="../assets/snc.png" alt="SNC" />
-    <img src="../assets/bde.jpg" alt="BDE" />
-    <img src="../assets/utc.jpg" alt="UTC" />
-  </footer>
+  <div v-touch:swipe="onSwipe">
+    <slot>
+      Something went wrong
+    </slot>
+    <footer>
+      <img src="../assets/PVDC.jpg " alt="PVDC" />
+      <img src="../assets/ssp.jpg" alt="SSP" />
+      <img src="../assets/oise.jpg" alt="Oise" />
+      <img src="../assets/picsart.jpg" alt="Piscart" />
+      <img src="../assets/compiègne.jpg" alt="Compiègne" />
+      <img src="../assets/aviron.jpg" alt="Aviron" />
+      <img src="../assets/dbs.jpg" alt="Dbs" />
+      <img src="../assets/snc.png" alt="SNC" />
+      <img src="../assets/bde.jpg" alt="BDE" />
+      <img src="../assets/utc.jpg" alt="UTC" />
+    </footer>
+  </div>
 </template>
 
 <style scoped>
-* {
-  --header-color: #c0f8ff;
-  --text-color: #009691;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .burger-menu {
   position: absolute;
   top: 0;

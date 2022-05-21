@@ -1,35 +1,37 @@
 <template>
-  <div>
-    <div class="page">
-      <img src="../assets/photo_accueil.jpg" alt="background" class="background" ref="background">
-      <img src="../assets/logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
-      <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
+  <MainLayout>
+    <div>
+      <div class="page">
+        <img src="../assets/photo_accueil.jpg" alt="background" class="background" ref="background">
+        <img src="../assets/logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
+        <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
+      </div>
+      <div class="page">
+        <main>
+          <h1>Édition 2022</h1>
+          <h2>Dimanche 18 septembre</h2>
+          <p>La course des Baignoires dans l’Oise revient pour sa 4ème édition à Compiègne, organisée par les étudiants de l’UTC !</p>
+          <p>Venez profiter en famille ou entre amis du village associatif, situé sur le <b>parking Vinci, cours Guynemer</b>, où vous pourrez assister
+            à la course, mais aussi profiter des différentes animations tout au long de la journée, des concerts, des spectacles, des jeux,
+            ainsi que d’un repas et un large choix de boissons. Plus d’informations sur le planning de la journée au village sera disponible
+            <router-link :to="{ name: 'village' }">ici</router-link>.</p>
+          <p>Entreprise compiégnoise ou association, vous souhaitez tenir un stand au village ? Contactez nous à
+            <a href="mailto:baignoirutc@assos.utc.fr">baignoirutc@assos.utc.fr</a>.</p>
+          <p>Pour les plus téméraires, participez directement à la course ! Une baignoire, un thème, un peu de motivation, c’est tout ce qu’il vous faut
+            pour passer une journée des plus folles ! En famille ou entre amis, n’hésitez plus, vous trouverez toutes les informations
+            <router-link :to="{ name: 'inscription' }">ici</router-link> !</p>
+          <div class="medias">
+            <a href="https://www.facebook.com/baignoiresdansloise/" target="_blank">
+              <img src="../assets/f_logo_RGB-Blue_100.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/baignoires_oise/" target="_blank">
+              <img src="../assets/instagram.png" alt="Instagram">
+            </a>
+          </div>
+        </main>
+      </div>
     </div>
-    <div class="page">
-      <main>
-        <h1>Édition 2022</h1>
-        <h2>Dimanche 18 septembre</h2>
-        <p>La course des Baignoires dans l’Oise revient pour sa 4ème édition à Compiègne, organisée par les étudiants de l’UTC !</p>
-        <p>Venez profiter en famille ou entre amis du village associatif, situé sur le <b>parking Vinci, cours Guynemer</b>, où vous pourrez assister
-          à la course, mais aussi profiter des différentes animations tout au long de la journée, des concerts, des spectacles, des jeux,
-          ainsi que d’un repas et un large choix de boissons. Plus d’informations sur le planning de la journée au village sera disponible
-          <a href="#/village">ici</a>.</p>
-        <p>Entreprise compiégnoise ou association, vous souhaitez tenir un stand au village ? Contactez nous à
-          <a href="mailto:baignoirutc@assos.utc.fr">baignoirutc@assos.utc.fr</a>.</p>
-        <p>Pour les plus téméraires, participez directement à la course ! Une baignoire, un thème, un peu de motivation, c’est tout ce qu’il vous faut
-          pour passer une journée des plus folles ! En famille ou entre amis, n’hésitez plus, vous trouverez toutes les informations
-          <a href="#/inscription">ici</a> !</p>
-        <div class="medias">
-          <a href="https://www.facebook.com/baignoiresdansloise/" target="_blank">
-            <img src="../assets/f_logo_RGB-Blue_100.png" alt="Facebook">
-          </a>
-          <a href="https://www.instagram.com/baignoires_oise/" target="_blank">
-            <img src="../assets/instagram.png" alt="Instagram">
-          </a>
-        </div>
-      </main>
-    </div>
-  </div>
+  </MainLayout>
 </template>
 
 <script>
@@ -38,6 +40,7 @@ import InlineSvg from "vue-inline-svg";
 import { getScrollPercent } from "@/utils";
 
 import ChevronDown from "@/assets/chevron-down-solid.svg";
+import MainLayout from "@/layouts/MainLayout";
 
 export default {
   name: "AccueilPage",
@@ -50,6 +53,7 @@ export default {
     };
   },
   components: {
+    MainLayout,
     InlineSvg
   },
   methods: {

@@ -1,10 +1,16 @@
 <template>
-  <h1>Previous Editions</h1>
+  <MainLayout>
+    <h1>Previous Editions</h1>
+  </MainLayout>
 </template>
 
 <script>
+import MainLayout from "@/layouts/MainLayout";
 export default {
-  name: "PreviousEditionsPage"
+  name: "PreviousEditionsPage",
+  components: {
+    MainLayout
+  }
 }
 </script>
 

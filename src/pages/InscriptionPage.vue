@@ -1,10 +1,16 @@
 <template>
-  <h1>Inscription</h1>
+  <MainLayout>
+    <h1>Inscription</h1>
+  </MainLayout>
 </template>
 
 <script>
+import MainLayout from "@/layouts/MainLayout";
 export default {
-  name: "InscriptionPage"
+  name: "InscriptionPage",
+  components: {
+    MainLayout
+  }
 }
 </script>
 
