@@ -1,17 +1,10 @@
 <template>
-  <MainLayout>
-    <h1>Village</h1>
-  </MainLayout>
+  <h1>Village</h1>
 </template>
 
 <script>
-import MainLayout from "@/layouts/MainLayout";
-
 export default {
-  name: "ProgramPage",
-  components: {
-    MainLayout
-  }
+  name: "ProgramPage"
 }
 </script>
 

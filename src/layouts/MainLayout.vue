@@ -2,14 +2,7 @@
 import InlineSvg from 'vue-inline-svg';
 
 import BarsSolid from "@/assets/bars-solid.svg";
-
-let id = 0;
-const routes = [
-  { name: 'accueil', title: 'Accueil', id: id++ },
-  { name: 'village', title: 'Village', id: id++ },
-  { name: 'inscription', title: 'Inscription', id: id++ },
-  { name: 'previous-editions', title: 'Éditions précédentes', id: id++ }
-]
+import { routes } from "@/utils";
 
 export default {
   name: "MainLayout",
