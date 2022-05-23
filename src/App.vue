@@ -2,21 +2,18 @@
 import MainLayout from "@/layouts/MainLayout";
 export default {
   name: 'App',
-  components: {MainLayout},
-  data () {
-    return {
-      transitionName: 'next'
-    }
+  components: {
+    MainLayout
   }
 }
 </script>
 
 <template>
   <MainLayout>
-    <router-view v-slot:="{ Component }">
-      <transition name="next">
-        <component :is="Component"/>
-      </transition>
+    <router-view v-slot="{ Component, route }">
+      <Transition :name="route.meta.transitionName">
+        <component :is="Component" :key="route.path"/>
+      </Transition>
     </router-view>
   </MainLayout>
 </template>
@@ -28,5 +25,19 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.next-enter-from, .previous-enter-from, .next-leave-to, .previous-leave-to {
+  transform: scaleX(1);
+}
 
+.next-enter-to, .previous-enter-to, .next-leave-from, .previous-leave-from {
+  transform: scaleX(0);
+}
+
+.next-enter-active, .previous-leave-active {
+  transform-origin: left center;
+}
+
+.previous-enter-active, .next-leave-active {
+  transform-origin: right center;
+}
 </style>
