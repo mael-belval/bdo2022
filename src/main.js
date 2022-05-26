@@ -14,9 +14,12 @@ const router = VueRouter.createRouter({
 })
 
 router.afterEach((to, from) => {
-    const toIndex = routes.filter(route => route.name === to.name)[0].id;
-    const fromIndex = routes.filter(route => route.name === from.name)[0].id
+    const toIndex = routes.filter(route => route.name === to.name)[0]?.id;
+    const fromIndex = routes.filter(route => route.name === from.name)[0]?.id
     to.meta.transitionName = fromIndex < toIndex ? 'next' : 'previous'
+    if (fromIndex === undefined || toIndex === undefined) {
+        to.meta.transitionName = 'null'
+    }
 })
 
 createApp(App)

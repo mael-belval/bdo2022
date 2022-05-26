@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="page">
-      <img src="../assets/photo_accueil.jpg" alt="background" class="background" ref="background">
-      <img src="../assets/logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
+      <img src="./photo_accueil.jpg" alt="background" class="background" ref="background">
+      <img src="./logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
       <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
     </div>
     <div class="page">
@@ -21,14 +21,15 @@
           <router-link :to="{ name: 'inscription' }">ici</router-link> !</p>
         <div class="medias">
           <a href="https://www.facebook.com/baignoiresdansloise/" target="_blank">
-            <img src="../assets/f_logo_RGB-Blue_100.png" alt="Facebook">
+            <img src="./f_logo_RGB-Blue_100.png" alt="Facebook">
           </a>
           <a href="https://www.instagram.com/baignoires_oise/" target="_blank">
-            <img src="../assets/instagram.png" alt="Instagram">
+            <img src="./instagram.png" alt="Instagram">
           </a>
         </div>
       </main>
     </div>
+    <FooterComponent />
   </div>
 </template>
 
@@ -37,7 +38,8 @@ import InlineSvg from "vue-inline-svg";
 
 import { getScrollPercent } from "@/utils";
 
-import ChevronDown from "@/assets/chevron-down-solid.svg";
+import ChevronDown from "./chevron-down-solid.svg";
+import FooterComponent from "@/components/footer/FooterComponent";
 
 export default {
   name: "AccueilPage",
@@ -50,6 +52,7 @@ export default {
     };
   },
   components: {
+    FooterComponent,
     InlineSvg
   },
   methods: {

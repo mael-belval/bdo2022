@@ -1,7 +1,7 @@
-import AccueilPage from "@/pages/AccueilPage";
-import VillagePage from "@/pages/VillagePage";
-import InscriptionPage from "@/pages/InscriptionPage";
-import PreviousEditionsPage from "@/pages/PreviousEditionsPage";
+import AccueilPage from "@/pages/accueil/AccueilPage";
+import VillagePage from "@/pages/village/VillagePage";
+import InscriptionPage from "@/pages/inscription/InscriptionPage";
+import PreviousEditionsPage from "@/pages/previous-editions/PreviousEditionsPage";
 
 export const getScrollPercent = () => {
     const h = document.documentElement,

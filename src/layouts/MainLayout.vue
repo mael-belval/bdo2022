@@ -1,7 +1,7 @@
 <script>
 import InlineSvg from 'vue-inline-svg';
 
-import BarsSolid from "@/assets/bars-solid.svg";
+import BarsSolid from "./bars-solid.svg";
 import { routes } from "@/utils";
 
 export default {
@@ -52,18 +52,6 @@ export default {
     <slot>
       Something went wrong
     </slot>
-    <footer>
-      <img src="../assets/PVDC.jpg " alt="PVDC" />
-      <img src="../assets/ssp.jpg" alt="SSP" />
-      <img src="../assets/oise.jpg" alt="Oise" />
-      <img src="../assets/picsart.jpg" alt="Piscart" />
-      <img src="../assets/compiègne.jpg" alt="Compiègne" />
-      <img src="../assets/aviron.jpg" alt="Aviron" />
-      <img src="../assets/dbs.jpg" alt="Dbs" />
-      <img src="../assets/snc.png" alt="SNC" />
-      <img src="../assets/bde.jpg" alt="BDE" />
-      <img src="../assets/utc.jpg" alt="UTC" />
-    </footer>
   </div>
 </template>
 
@@ -109,17 +97,5 @@ a, img {
 
 a:hover {
   text-decoration: underline;
-}
-
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #fff;
-}
-
-footer img {
-  height: 2.5rem;
-  margin: 0.3rem;
 }
 </style>

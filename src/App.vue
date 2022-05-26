@@ -23,6 +23,8 @@ export default {
   --header-color: #c0f8ff;
   --text-color: #009691;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+  text-justify: auto;
 }
 
 .next-enter-from, .previous-enter-from, .next-leave-to, .previous-leave-to {
@@ -39,5 +41,9 @@ export default {
 
 .previous-enter-active, .next-leave-active {
   transform-origin: right center;
+}
+
+.next-enter-active, .previous-enter-active, .next-leave-active, .previous-leave-active {
+  transition: transform 0.5s;
 }
 </style>
