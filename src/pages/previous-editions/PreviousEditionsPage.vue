@@ -9,7 +9,9 @@
 import FooterComponent from "@/components/footer/FooterComponent";
 export default {
   name: "PreviousEditionsPage",
-  components: {FooterComponent}
+  components: {
+    FooterComponent
+  }
 }
 </script>
 

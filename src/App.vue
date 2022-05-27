@@ -28,19 +28,19 @@ export default {
 }
 
 .next-enter-from, .previous-enter-from, .next-leave-to, .previous-leave-to {
-  transform: scaleX(1);
-}
-
-.next-enter-to, .previous-enter-to, .next-leave-from, .previous-leave-from {
   transform: scaleX(0);
 }
 
+.next-enter-to, .previous-enter-to, .next-leave-from, .previous-leave-from {
+  transform: scaleX(1);
+}
+
 .next-enter-active, .previous-leave-active {
-  transform-origin: left center;
+  transform-origin: right center;
 }
 
 .previous-enter-active, .next-leave-active {
-  transform-origin: right center;
+  transform-origin: left center;
 }
 
 .next-enter-active, .previous-enter-active, .next-leave-active, .previous-leave-active {

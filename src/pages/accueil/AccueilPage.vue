@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page">
-      <img src="./photo_accueil.jpg" alt="background" class="background" ref="background">
+      <img src="./photo_accueil.jpg" alt="background" class="background" ref="background" @load="placeBackground">
       <img src="./logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
       <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
     </div>
