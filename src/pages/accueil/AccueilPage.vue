@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page">
-      <img src="./photo_accueil.jpg" alt="background" class="background" ref="background" @load="placeBackground">
+      <img src="./photo_accueil.jpg" alt="background" class="background" ref="background">
       <img src="./logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
       <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
     </div>
@@ -61,9 +61,6 @@ export default {
       this.scale = `scale(${1 + getScrollPercent() / 1000.0})`;
       this.scrollDownOpacity = 1 - (window.scrollY * 4 / window.innerHeight);
     },
-    placeBackground() {
-      this.$refs.background.style.left = this.$refs.background.width / -2 + "px";
-    },
     doScroll() {
       window.scrollTo({
         top: window.innerHeight - (3.5 * parseFloat(getComputedStyle(document.documentElement).fontSize)),
@@ -73,13 +70,9 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
-    window.addEventListener("resize", this.placeBackground);
-
-    this.placeBackground();
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
-    window.removeEventListener("resize", this.placeBackground);
   }
 }
 </script>
@@ -97,7 +90,6 @@ export default {
 
 .background {
   position: fixed;
-  left: -50%;
   height: 100%;
   z-index: -1;
   filter: v-bind(blur);
