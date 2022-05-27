@@ -92,12 +92,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #009691;
   line-height: 1.5rem;
-}
-
-.page:first-child {
-  margin-top: 3.5rem;
 }
 
 .background {
@@ -115,31 +110,6 @@ export default {
   width: 100%;
   max-width: 80vw;
   z-index: 1;
-}
-
-main {
-  margin: 0 1rem 1rem 1rem;
-  background-color: #C0F8FFCC;
-  border-radius: 5px;
-  padding: 1.5rem 1rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
-h1, h2 {
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 0.5rem;
 }
 
 .medias {

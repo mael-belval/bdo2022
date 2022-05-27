@@ -1,7 +1,14 @@
 <template>
-  <div class="container">
+  <div>
     <CarouselComponent page="Village" :images="[Village1, Village2, Village3]" />
-    <h1>Village</h1>
+    <main>
+      <h1>Village</h1>
+      <p>Accès au public de 12h à 19h, situé sur le parking Vinci, cour Guynemer à Compiègne. En plus de pouvoir assister à la course dans les
+        meilleures conditions, vous y trouverez un stand de restauration, une structure gonflable, des concerts, des spectacles et des jeux.</p>
+      <p>L’accès au village et à toutes les activités seront gratuits. Le paiement pour le stand de restauration et de boissons se fera par l’achat
+        de tickets en carte bleue, en liquide ou en Pay’UTC au stand “Ticket Conso”.</p>
+      <p class="center">Le planning de la journée, ainsi que les ventes de la buvette seront révélés plus tard. Restez connectés !</p>
+    </main>
     <FooterComponent />
   </div>
 </template>
@@ -31,7 +38,18 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-top: 3.5rem;
+.center {
+  text-align: center;
+}
+
+main {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+div {
+  background-image: linear-gradient(to right bottom, #c0f8ff, #d4f8ff, #e8f9ff, #f7fbff, #ffffff);
+  line-height: 1.5rem;
 }
 </style>

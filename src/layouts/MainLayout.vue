@@ -82,6 +82,7 @@ export default {
   font-weight: bold;
   transition: all 0.3s ease-in-out;
   z-index: 10;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
 .nav-open {
