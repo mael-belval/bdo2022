@@ -2,7 +2,7 @@
   <div>
     <template v-for="(image, index) in images" :key="image">
       <Transition>
-        <img :src="image" :alt="`${page}-${index + 1}`" :ref="`${page}-${index + 1}`" v-show="currentId === index" @load="resize">
+        <img :src="image" :alt="`${page}-${index + 1}`" :ref="`${page}-${index + 1}`" v-show="currentId === index" @load="onLoad">
       </Transition>
     </template>
   </div>
@@ -20,14 +20,17 @@ export default {
     }
   },
   methods: {
-    resize() {
+    onLoad() {
       if (this.height === 0 || this.height === '0px') {
-        let max = 0;
-        this.images.forEach((image, index) => {
-          max = Math.max(max, this.$refs[`${this.page}-${index + 1}`][0].offsetHeight);
-        })
-        this.height = `${max}px`;
+        this.resize()
       }
+    },
+    resize() {
+      let max = 0;
+      this.images.forEach((image, index) => {
+        max = Math.max(max, this.$refs[`${this.page}-${index + 1}`][0].offsetHeight);
+      })
+      this.height = `${max}px`;
     },
   },
   mounted() {
@@ -36,7 +39,7 @@ export default {
     }, 3000)
 
     window.addEventListener('resize', this.resize);
-    this.resize()
+    this.onLoad()
   },
   beforeUnmount() {
     clearInterval(this.timer)
