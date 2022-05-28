@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 img {
-  width: 100vw;
+  width: 100%;
   position: absolute;
 }
 
@@ -67,5 +67,16 @@ div {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+@media screen and (min-width: 800px) {
+  div {
+    width: 60vw;
+    margin-left: 20vw
+  }
+
+  img {
+    width: 60vw;
+  }
 }
 </style>

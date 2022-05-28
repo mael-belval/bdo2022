@@ -34,6 +34,7 @@
         frameborder="0"
         marginheight="0"
         marginwidth="0"
+        scrolling="yes"
     >
       Chargement…
     </iframe>
@@ -82,5 +83,6 @@ div {
 iframe {
   width: 100%;
   height: 100vh;
+  overflow-y: scroll;
 }
 </style>
