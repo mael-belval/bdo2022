@@ -34,6 +34,7 @@ main {
   border-radius: 10px;
   padding: 1.5rem 1rem;
   border: solid 1px #000000;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
 main:before {
@@ -67,6 +68,12 @@ p {
 .container {
   position: absolute;
   top: 3.5rem;
+  background-image: linear-gradient(to right top, #39af8d, #38b994, #36c39b, #34cda2, #32d7a9, #38deb0, #3ee4b7, #44ebbe, #52f0c7, #5ff5d0, #6bfad9, #77ffe1);
+  line-height: 1.5rem;
+}
+
+.center {
+  text-align: center;
 }
 
 @media screen and (min-width: 800px) {

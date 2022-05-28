@@ -20,12 +20,12 @@
       <p>Pour toute question sur l’inscription, contacte nous à <a href="mailto:baignoirutc@assos.utc.fr">baignoirutc@assos.utc.fr</a>.</p>
 
       <h2>Les membres d’équipage</h2>
-      <p>Chaque équipe doit être composée de 2 à 8 personnes de 15 ans minimum. Chaque équipe doit avoir un chef d’équipe majeur.</p>
+      <p>Chaque équipe doit être composée de 2 à 10 personnes de 15 ans minimum. Chaque équipe doit avoir un chef d’équipe majeur.</p>
       <p>La participation est gratuite pour les cotisants BDE-UTC, et de 1€ par personne pour les non-cotisants.</p>
 
       <h2>Documents à télécharger</h2>
-      <p><a href="#">Règlement 2021</a></p>
-      <p><a href="#">Cahier des charges</a></p>
+      <p><a href="#" target="_blank">Règlement 2022</a></p>
+      <p><a href="#" target="_blank">Cahier des charges</a></p>
       <h2>Inscrire son équipe</h2>
     </main>
     <iframe
@@ -67,19 +67,6 @@ export default {
 </script>
 
 <style scoped>
-.center {
-  text-align: center;
-}
-
-main {
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-}
-
-div {
-  background-image: linear-gradient(to right top, #39af8d, #38b994, #36c39b, #34cda2, #32d7a9, #38deb0, #3ee4b7, #44ebbe, #52f0c7, #5ff5d0, #6bfad9, #77ffe1);
-  line-height: 1.5rem;
-}
-
 iframe {
   width: 100%;
   height: 100vh;
