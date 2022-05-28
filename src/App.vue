@@ -29,10 +29,21 @@ export default {
 }
 
 main {
-  margin: 0 1rem 1rem 1rem;
-  background-color: #C0F8FFBB;
-  border-radius: 5px;
+  margin: 3rem 1rem;
+  background-color: #fefefe;
+  border-radius: 10px;
   padding: 1.5rem 1rem;
+  border: solid 1px #000000;
+}
+
+main:before {
+  content: url('./mousse.png');
+  position: relative;
+  display: block;
+  left:75%;
+  top:-3.6rem;
+  width:0;
+  height:0;
 }
 
 h1 {
@@ -56,6 +67,13 @@ p {
 .container {
   position: absolute;
   top: 3.5rem;
+}
+
+@media screen and (min-width: 800px) {
+  main {
+    margin-left: 25vw;
+    margin-right: 25vw;
+  }
 }
 
 .next-enter-from, .previous-enter-from, .next-leave-to, .previous-leave-to {

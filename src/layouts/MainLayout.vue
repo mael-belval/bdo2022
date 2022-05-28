@@ -13,6 +13,7 @@ export default {
     return {
       routes,
       menuOpen: false,
+      shouldOpenMenu: false,
       BarsSolid
     }
   },
@@ -29,7 +30,17 @@ export default {
         }
         this.$router.push({ name: routes[routes.findIndex(route => route.name === this.$route.name) - 1].name })
       }
+    },
+    onResize() {
+        this.shouldOpenMenu = this.menuOpen || window.innerWidth > 800
     }
+  },
+  mounted() {
+    this.onResize()
+    window.addEventListener('resize', this.onResize)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize)
   }
 }
 </script>
@@ -37,12 +48,14 @@ export default {
 <template>
   <header>
     <nav :class="{ 'nav-header': true, 'nav-open': menuOpen }">
-      <InlineSvg :src="BarsSolid" class="burger-menu" @click="() => this.menuOpen = !this.menuOpen"  />
+      <InlineSvg :src="BarsSolid" class="burger-menu" @click="() => {this.menuOpen = !this.menuOpen; this.onResize()}"  />
       <template v-for="route in routes" :key="route.id">
         <router-link
             :to="{ name: route.name }"
-            v-show="menuOpen || this.$route.name === route.name"
-            @click="() => this.menuOpen = false">
+            v-show="shouldOpenMenu || this.$route.name === route.name"
+            @click="() => this.menuOpen = false"
+            :class="{ active: this.$route.name === route.name }"
+        >
           {{ route.title }}
         </router-link>
       </template>
@@ -99,5 +112,21 @@ a, img {
 
 a:hover {
   text-decoration: underline;
+}
+
+@media screen and (min-width: 800px) {
+  .burger-menu {
+    display: none;
+  }
+
+  .nav-header {
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  .active, nav a:hover {
+    text-decoration: underline overline;
+  }
 }
 </style>

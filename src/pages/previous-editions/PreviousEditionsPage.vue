@@ -20,8 +20,7 @@
       <p class="center"><a href="#">Aftermovie de l'édition</a></p>
       <p>On a parlé de nous sur
         <a href="https://france3-regions.francetvinfo.fr/hauts-de-france/oise/compiegne/video-etudiants-utc-compiegne-organisent-course-baignoires-1550176.html">
-          France 3 HDF
-        </a>, dans
+          France 3 HDF</a>, dans
         <a href="https://www.courrier-picard.fr/art/99936/article/2018-03-28/les-baignoires-de-retour-dans-loise-compiegne">Le Courrier Picard</a>
         et dans <a href="http://oise-media.fr/course-des-baignoires-2018-a-compiegne-les-etudiants-de-lutc-vous-attendent/">Oise Média</a>
       </p>
@@ -46,7 +45,7 @@ export default {
 }
 
 div {
-  background-image: linear-gradient(to right bottom, #c0f8ff, #d4f8ff, #e8f9ff, #f7fbff, #ffffff);
+  background-image: linear-gradient(to right top, #39af8d, #38b994, #36c39b, #34cda2, #32d7a9, #38deb0, #3ee4b7, #44ebbe, #52f0c7, #5ff5d0, #6bfad9, #77ffe1);
   line-height: 1.5rem;
 }
 
@@ -55,8 +54,14 @@ img {
 }
 
 main {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+h2:first-child {
+  margin-top: 0;
 }
 </style>

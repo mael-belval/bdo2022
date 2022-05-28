@@ -43,13 +43,11 @@ export default {
 }
 
 main {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
 div {
-  background-image: linear-gradient(to right bottom, #c0f8ff, #d4f8ff, #e8f9ff, #f7fbff, #ffffff);
+  background-image: linear-gradient(to right top, #39af8d, #38b994, #36c39b, #34cda2, #32d7a9, #38deb0, #3ee4b7, #44ebbe, #52f0c7, #5ff5d0, #6bfad9, #77ffe1);
   line-height: 1.5rem;
 }
 </style>
