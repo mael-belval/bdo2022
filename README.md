@@ -1,5 +1,7 @@
 # bdo
 
+The website can be checked [here](https://assos.utc.fr/baignoirutc/baignoires2022/).
+
 ## Project setup
 ```
 npm install
