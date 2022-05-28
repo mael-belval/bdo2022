@@ -1,9 +1,9 @@
 <template>
-  <div class="backgroundContainer">
-    <img src="./photo_accueil.jpg" alt="background" class="background">
-  </div>
   <div class="container">
-    <div class="page">
+    <div class="backgroundContainer">
+      <img src="./photo_accueil.jpg" alt="background" class="background">
+    </div>
+    <div class="page first-page">
       <img src="./logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
       <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
     </div>
@@ -92,23 +92,22 @@ export default {
   line-height: 1.5rem;
 }
 
-.page:first-child {
+.first-page {
   position: relative;
 }
 
 .backgroundContainer {
   position: fixed;
-  top: 0;
+  top: 3.5rem;
   left: 0;
   width: 100vw;
   height: calc(100vh - 3.5rem);
   z-index: -1;
-  padding-top: 3.5rem;
 }
 
 .background {
-  height: auto;
-  width: auto;
+  width: 100vw;
+  height: calc(100vh - 3.5rem);
   object-fit: cover;
   filter: v-bind(blur);
   transform: v-bind(scale);
