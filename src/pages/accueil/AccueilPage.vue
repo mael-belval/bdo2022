@@ -141,6 +141,10 @@ export default {
   animation: 1s ease-in-out infinite bounce;
 }
 
+.container {
+  background-image: none;
+}
+
 @keyframes bounce {
   0% {
     transform: translateY(0);
