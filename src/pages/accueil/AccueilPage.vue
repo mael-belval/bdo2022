@@ -99,8 +99,8 @@ export default {
 }
 
 .logo {
-  width: 100%;
-  max-width: 80vw;
+  width: min(70vw, 50vh);
+  max-width: 480px;
   z-index: 1;
 }
 
@@ -117,7 +117,7 @@ export default {
   position: absolute;
   bottom: 2rem;
   fill: #c0f8ff;
-  height: 4rem;
+  height: clamp(1rem, 4rem, 10vh);
   filter: drop-shadow(0 0 5px #777);
   cursor: pointer;
   opacity: v-bind(scrollDownOpacity);
