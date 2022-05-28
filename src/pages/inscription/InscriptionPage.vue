@@ -4,8 +4,10 @@
     <main>
       <h1>Inscription</h1>
       <p class="center">Les inscriptions sont ouvertes du 29 mai au 31 août</p>
+
       <h2>ATTENTION</h2>
       <p class="center">Les inscriptions fermeront plus tôt si nous atteignons notre maximum de 15 équipes</p>
+
       <h2>En quoi cela consiste-t-il ?</h2>
       <p>En amont de l’événement, tu devras réunir ta plus fidèle équipe, et construire ensemble votre radeau autour d’une baignoire ! N’oubliez pas
         de trouver un thème pour votre embarcation, l’originalité aussi fait remporter des points !</p>
@@ -16,9 +18,11 @@
       <p>Des prix seront remis pour les 3 équipes les plus rapides, mais il y aura aussi le prix d’originalité, le prix du jury et le prix du
         public (choisis par les gens présents au village).</p>
       <p>Pour toute question sur l’inscription, contacte nous à <a href="mailto:baignoirutc@assos.utc.fr">baignoirutc@assos.utc.fr</a>.</p>
+
       <h2>Les membres d’équipage</h2>
       <p>Chaque équipe doit être composée de 2 à 8 personnes de 15 ans minimum. Chaque équipe doit avoir un chef d’équipe majeur.</p>
       <p>La participation est gratuite pour les cotisants BDE-UTC, et de 1€ par personne pour les non-cotisants.</p>
+
       <h2>Documents à télécharger</h2>
       <p><a href="#">Règlement 2021</a></p>
       <p><a href="#">Cahier des charges</a></p>

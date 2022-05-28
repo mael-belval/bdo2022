@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="backgroundContainer">
+    <img src="./photo_accueil.jpg" alt="background" class="background">
+  </div>
+  <div class="container">
     <div class="page">
-      <img src="./photo_accueil.jpg" alt="background" class="background" ref="background">
       <img src="./logo.png" alt="Logo Baignoire dans l'Oise" class="logo">
       <InlineSvg :src="ChevronDown" class="scroll-down" @click="doScroll" v-show="scrollDownOpacity > 0" />
     </div>
@@ -9,6 +11,7 @@
       <main>
         <h1>Édition 2022</h1>
         <h2>Dimanche 18 septembre</h2>
+
         <p>La course des Baignoires dans l’Oise revient pour sa 4ème édition à Compiègne, organisée par les étudiants de l’UTC !</p>
         <p>Venez profiter en famille ou entre amis du village associatif, situé sur le <b>parking Vinci, cours Guynemer</b>, où vous pourrez assister
           à la course, mais aussi profiter des différentes animations tout au long de la journée, des concerts, des spectacles, des jeux,
@@ -19,6 +22,7 @@
         <p>Pour les plus téméraires, participez directement à la course ! Une baignoire, un thème, un peu de motivation, c’est tout ce qu’il vous faut
           pour passer une journée des plus folles ! En famille ou entre amis, n’hésitez plus, vous trouverez toutes les informations
           <router-link :to="{ name: 'inscription' }">ici</router-link> !</p>
+
         <div class="medias">
           <a href="https://www.facebook.com/baignoiresdansloise/" target="_blank">
             <img src="./f_logo_RGB-Blue_100.png" alt="Facebook">
@@ -79,7 +83,7 @@ export default {
 
 <style scoped>
 .page {
-  height: calc(100vh - 3.5rem);
+  min-height: calc(100vh - 3.5rem);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -88,10 +92,24 @@ export default {
   line-height: 1.5rem;
 }
 
-.background {
+.page:first-child {
+  position: relative;
+}
+
+.backgroundContainer {
   position: fixed;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 3.5rem);
   z-index: -1;
+  padding-top: 3.5rem;
+}
+
+.background {
+  height: auto;
+  width: auto;
+  object-fit: cover;
   filter: v-bind(blur);
   transform: v-bind(scale);
   transform-origin: center center;

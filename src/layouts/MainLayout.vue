@@ -48,6 +48,7 @@ export default {
       </template>
     </nav>
   </header>
+
   <div v-touch:swipe="onSwipe">
     <slot>
       Something went wrong
