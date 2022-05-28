@@ -24,8 +24,8 @@
       <p>La participation est gratuite pour les cotisants BDE-UTC, et de 1€ par personne pour les non-cotisants.</p>
 
       <h2>Documents à télécharger</h2>
-      <p><a href="/reglement-BDO-2022.pdf" target="_blank">Règlement 2022</a></p>
-      <p><a href="/cahier-des-charges-BDO-2022.pdf" target="_blank">Cahier des charges</a></p>
+      <p><a href="https://assos.utc.fr/baignoirutc/baignoires2022/reglement-BDO-2022.pdf" target="_blank">Règlement 2022</a></p>
+      <p><a href="https://assos.utc.fr/baignoirutc/baignoires2022/cahier-des-charges-BDO-2022.pdf" target="_blank">Cahier des charges</a></p>
       <h2>Inscrire son équipe</h2>
     </main>
     <iframe
